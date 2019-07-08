@@ -1,0 +1,107 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+<head>
+<title>List Product</title>
+</head>
+<div layout:fragment="content" id="content">
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-header">
+<h4 class="card-title">List Product</h4>
+</div>
+<div class="card-body">
+<a href="/product/create" class="card-title btn btn-primary">New Product</a>
+
+
+<div class="table-responsive">
+<table id="grid" class="table table-striped border">
+<thead>
+    <tr>
+       <!--  <th>ID</th> -->
+        <th>Name</th>
+        <th>Type</th>		       
+        <th></th>
+    </tr>
+</thead>
+
+
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+<th:block layout:fragment="styles">
+<link rel="stylesheet" type="text/css"  href="/themefiles/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" />
+</th:block>
+
+
+<th:block layout:fragment="scripts">
+<script src="/themefiles/assets/extra-libs/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="/js/fnFilterOnReturn.js"></script>
+<script type="text/javascript" src="/js/jquery.spring-friendly.js"></script>
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+	
+	$("table#grid").dataTable({ 
+		pagingType : 'full_numbers',
+		lengthMenu : [ [2, 5, 10], [2, 5, 10] ],
+		autoWidth: false,
+		ajax: {
+			
+			url: '/api/product',
+			
+		},
+		
+		
+		
+	
+		/*
+	    ajax: {
+	        contentType: 'application/json',
+	        url: '/api/customers',
+	        type: 'POST',
+	        data: function(d) {
+	          return JSON.stringify(d);
+	        }
+	    },
+	    */
+	    processing:true,
+	    serverSide: true,
+    
+	    columns: [
+	       /*  {
+	            data: 'id'
+	        }, */
+	        {
+	            data: 'name'
+	        },
+	        {
+	            data: 'productType.name'
+	        },
+	        
+	        {
+	        	data:null,
+	        	sortable: false,
+	        	searchable: false,
+	        	render: function (data, type, row) {
+	        		//console.log(row);
+	                return '<a class="table-edit btn btn-info" data-id="' + row.id + '" href="/product/update/'+row.id+'">UPDATE</a>';
+	                
+	            }
+	        }
+	    ]
+	}).fnFilterOnReturn();	
+
+
+/*]]>*/
+</script>
+</th:block>

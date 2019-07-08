@@ -1,0 +1,35 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+<head>
+<title>Update rate : [[*{ rate.productRate.name}]] </title>
+</head>
+<div layout:fragment="content" id="content">
+
+
+
+
+<div class="row">
+<div class="col-12">
+<div class="card">
+
+<div class="card-body">
+    <h4 class="card-title">Update rate : [[*{ rate.productRate.name}]]</h4>    
+</div>
+<hr class="mt-0">
+<form action="#" th:action="@{{id}(id=${rate.id})}" th:object="${rate}" method="post" class="form-horizontal r-separator">
+   	<!--  
+    <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+    	<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>    
+	</div>
+    -->
+    <div th:replace="rate/_form :: form"></div>
+    
+	<div class="card-body">  
+	    <div class="form-group mb-0 text-right">
+	    	<button class="btn btn-info waves-effect waves-light" type="submit">Save</button>
+	    </div>
+	</div>   
+</form>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,78 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/login}">
+<head>
+<title>Login</title>
+</head>
+<div layout:fragment="content" id="content">
+
+
+				<div id="loginform">
+                    <div class="logo">
+                        <span class="db"><img src="/themefiles/assets/images/logo-icon.png" alt="logo" /></span>
+                        <h5 class="font-medium mb-3">Login</h5>
+                    </div>
+                   
+                    <!-- Form -->
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="form-horizontal mt-3" id="loginform" th:action="@{/login}" method="post">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                                    </div>
+                                    <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                    </div>
+                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Remember me</label>
+                                            <a href="javascript:void(0)" id="to-recover" class="text-dark float-right"><i class="fa fa-lock mr-1"></i> Forgot pwd?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <div class="col-xs-12 pb-3">
+                                        <button class="btn btn-block btn-lg btn-info" type="submit">Log In</button>
+                                    </div>
+                                </div>
+                               
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div id="recoverform">
+                    <div class="logo">
+                        <span class="db"><img src="/themefiles/assets/images/logo-icon.png" alt="logo" /></span>
+                        <h5 class="font-medium mb-3">Recover Password</h5>
+                        <span>Enter your Email and instructions will be sent to you!</span>
+                    </div>
+                    <div class="row mt-3">
+                        <!-- Form -->
+                        <form class="col-12" action="index.html">
+                            <!-- email -->
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <input class="form-control form-control-lg" type="email" required="" placeholder="Username">
+                                </div>
+                            </div>
+                            <!-- pwd -->
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <button class="btn btn-block btn-lg btn-danger" type="submit" name="action">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+</div>

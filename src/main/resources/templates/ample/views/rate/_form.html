@@ -1,0 +1,61 @@
+<div th:fragment="form">
+	
+	
+	<input type="hidden" th:field="*{areaFromRate.id}">
+	<input type="hidden" th:field="*{areaToRate.id}">
+	
+	<div class="card-body">
+	
+	
+	<div class="form-group row align-items-center mb-0">
+    	<label th:for="#{productRate}" th:text="#{productRate}" class="col-3 text-right control-label col-form-label"></label>  
+    <div class="col-9 border-left pb-2 pt-2">
+	    <select class="form-control" th:classappend="${#fields.hasErrors('productRate')}? 'is-invalid':'' " th:id="${productRate}" th:field="*{productRate.id}">
+	        <option value="">Select product</option>
+	        <option th:each="productRate : ${products}"
+	                th:value="${productRate.id}"
+	                th:text="${productRate.name}"></option>
+	    </select>
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('productRate')}" th:errors="*{productRate}"></div>
+    </div>
+    
+    </div>
+	    
+    
+    <div class="form-group row align-items-center mb-0">
+    	<label th:for="#{rateType}" th:text="#{rateType}" class="col-3 text-right control-label col-form-label"></label>  
+	    <div class="col-9 border-left pb-2 pt-2">
+		    <select class="form-control" th:classappend="${#fields.hasErrors('rateType')}? 'is-invalid':'' " id="rateType" th:field="*{rateType}">
+		        <option value="-1">Select rateType</option>
+		        <option th:each="rateType : ${rateTypes}"
+		                th:value="${rateType.key}"
+		                th:text="${rateType.value}"></option>
+		    </select>
+		    <div class="invalid-feedback" th:if="${#fields.hasErrors('rateType')}" th:errors="*{rateType}"></div>
+	    </div>
+    
+     </div>
+    
+    
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{rate}" th:text="#{rate}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('rate')}? 'is-invalid':'' " type="text" th:field="*{rate}" th:id="${rate}" th:placeholder="#{rate}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}"></div>
+    </div>
+    </div>
+    
+    
+    
+    
+      
+    
+	</div>
+    
+
+    
+     
+ 
+</div>

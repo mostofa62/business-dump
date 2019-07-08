@@ -1,0 +1,92 @@
+<div th:fragment="form">
+	
+	<div class="card-body">
+	<h4 class="card-title">Profile</h4>
+	
+	<div class="form-group row align-items-center mb-0">
+    	<label th:for="#{role}" th:text="#{role}" class="col-3 text-right control-label col-form-label"></label>  
+    <div class="col-9 border-left pb-2 pt-2">
+	    <select class="form-control" th:classappend="${#fields.hasErrors('role')}? 'is-invalid':'' " th:id="${role}" th:field="*{role.id}">
+	        <option value="">Select Role</option>
+	        <option th:each="role : ${roles}"
+	                th:value="${role.id}"
+	                th:text="${role.name}"></option>
+	    </select>
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
+    </div>
+    
+    </div>
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{fullName}" th:text="#{fullName}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('fullName')}? 'is-invalid':'' " type="text" th:field="*{fullName}" th:id="${fullName}" th:placeholder="#{fullName}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+    </div>
+    </div>
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{email}" th:text="#{email}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('email')}? 'is-invalid':'' " type="text" th:field="*{email}" th:id="${email}" th:placeholder="#{email}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    </div>
+	    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{mobile}" th:text="#{mobile}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('mobile')}? 'is-invalid':'' " type="text" th:field="*{mobile}" th:id="${mobile}" th:placeholder="#{mobile}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></div>
+    </div>
+    </div>
+    
+   
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{rLevel}" th:text="#{rLevel}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('rLevel')}? 'is-invalid':'' " type="text" th:field="*{rLevel}" th:id="${rLevel}" th:placeholder="#{rLevel}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('rLevel')}" th:errors="*{rLevel}"></div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+      
+    
+	</div>
+    
+    
+    <div class="card-body bg-light">
+    <h4 class="card-title">Login Cerdinalities</h4>
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{userName}" th:text="#{userName}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('userName')}? 'is-invalid':'' " type="text" th:field="*{userName}" th:id="${userName}" th:placeholder="#{userName}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+    </div>
+    </div>
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{password}" th:text="#{password}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('password')}? 'is-invalid':'' " type="password" th:field="*{password}" th:id="${password}" th:placeholder="#{password}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+    </div>
+    
+    </div>
+
+    
+     
+ 
+</div>

@@ -1,0 +1,64 @@
+<div th:fragment="form">
+	
+	<div class="card-body">
+	
+	<div class="form-group row align-items-center mb-0">
+    	<label th:for="#{productType}" th:text="#{productType}" class="col-3 text-right control-label col-form-label"></label>  
+    <div class="col-9 border-left pb-2 pt-2">
+	    <select class="form-control" th:classappend="${#fields.hasErrors('productType')}? 'is-invalid':'' " th:id="${productType}" th:field="*{productType.id}">
+	        <option value="">Select Product Type</option>
+	        <option th:each="productType : ${productTypes}"
+	                th:value="${productType.id}"
+	                th:text="${productType.name}"></option>
+	    </select>
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('productType')}" th:errors="*{productType}"></div>
+    </div>
+    
+    </div>
+	
+	    
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{name}" th:text="#{name}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('name')}? 'is-invalid':'' " type="text" th:field="*{name}" th:id="${name}" th:placeholder="#{name}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+    </div>
+    
+    
+    
+    <div class="form-group row align-items-center mb-0">
+    <label th:for="#{validity}" th:text="#{validity}" class="col-3 text-right control-label col-form-label">></label>
+    <div class="col-9 border-left pb-2 pt-2">
+	    <input class="form-control" th:classappend="${#fields.hasErrors('validity')}? 'is-invalid':'' " type="text" th:field="*{validity}" th:id="${validity}" th:placeholder="#{validity}">
+	    <div class="invalid-feedback" th:if="${#fields.hasErrors('validity')}" th:errors="*{validity}"></div>
+    </div>
+    </div>
+    
+    <div class="form-group row align-items-center mb-0">
+    	<label th:for="#{validityType}" th:text="#{validityType}" class="col-3 text-right control-label col-form-label"></label>  
+	    <div class="col-9 border-left pb-2 pt-2">
+		    <select class="form-control" th:classappend="${#fields.hasErrors('validityType')}? 'is-invalid':'' " id="validityType" th:field="*{validityType}">
+		        <option value="">Select validityType</option>
+		        <option th:each="validityType : ${validityTypes}"
+		                th:value="${validityType.key}"
+		                th:text="${validityType.value}"></option>
+		    </select>
+		    <div class="invalid-feedback" th:if="${#fields.hasErrors('validityType')}" th:errors="*{validityType}"></div>
+	    </div>
+    
+     </div>
+    
+    
+    
+      
+    
+	</div>
+    
+
+    
+     
+ 
+</div>
